@@ -2,13 +2,13 @@
 
 namespace Xadrez_Console.Tabuleiro
 {
-     class tabuleiro1
+     class Tabuleiro1
     {
         public int Linhas { get; set; }
         public int Colunas { get; set; }
         private Peca[,] pecas;
 
-        public tabuleiro1(int linhas, int colunas)
+        public Tabuleiro1(int linhas, int colunas)
         {
             this.Linhas = linhas;
             this.Colunas = colunas;
@@ -40,6 +40,21 @@ namespace Xadrez_Console.Tabuleiro
             pecas[pos.Linha, pos.Coluna] = p;
             p.Posicao = pos;
             
+        }
+
+        public Peca RetiraPeca(Posicao pos)
+        {
+            if (Peca(pos) == null)
+            {
+                return null;
+            }
+            else
+            {
+                Peca aux = Peca(pos);
+                aux.Posicao = null;
+                pecas[pos.Linha, pos.Coluna] = null;
+                return aux;
+            }
         }
 
         public bool PosicaoValida(Posicao posicao)

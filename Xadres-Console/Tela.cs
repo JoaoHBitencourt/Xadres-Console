@@ -1,10 +1,11 @@
-﻿using Xadrez_Console.Tabuleiro;
+﻿using Xadres_Console.Xadrez;
+using Xadrez_Console.Tabuleiro;
 
 namespace Xadres_Console
 {
      class Tela
     {
-        public static void ImprimirTabuleiro(tabuleiro1 tab)
+        public static void ImprimirTabuleiro(Tabuleiro1 tab)
         {
             for (int i = 0; i < tab.Linhas; i++)
             {
@@ -17,13 +18,21 @@ namespace Xadres_Console
                     }
                     else
                     {
-                        Tela.ImprimirPeca(tab.Peca(i, j));
+                        ImprimirPeca(tab.Peca(i, j));
                         Console.Write(" ");
                     }
                 }
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h");
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse($"{s[1]}");
+            return new PosicaoXadrez(coluna, linha);
         }
 
         public static void ImprimirPeca(Peca peca)

@@ -4,7 +4,7 @@ namespace Xadres_Console.Xadrez
 {
     class Torre : Peca
     {
-        public Torre(tabuleiro1 tab, Cor cor) : base(tab, cor)
+        public Torre(Tabuleiro1 tab, Cor cor) : base(tab, cor)
         {
         }
 
