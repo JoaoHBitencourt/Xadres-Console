@@ -22,7 +22,7 @@ namespace Xadres_Console
             else
             {
                 Console.WriteLine("XEQUEMATE!");
-                Console.WriteLine($"Vencedor {partida.JogadorAtual}");
+                Console.WriteLine($"Vencedor: {partida.JogadorAtual}");
             }
         }
 
