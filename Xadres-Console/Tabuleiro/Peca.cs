@@ -9,15 +9,36 @@
 
         public Peca(Tabuleiro1 tab, Cor cor)
         {
-            this.Posicao = null;
-            this.Tab = tab;
-            this.Cor = cor;
-            this.QtdMovimento = 0;
+            Posicao = null;
+            Tab = tab;
+            Cor = cor;
+            QtdMovimento = 0;
         }
 
         public void IncrementarQtdMovimentos()
         {
             QtdMovimento++;
+        }
+
+        public bool ExisteMovimentosPossiveis()
+        {
+            bool[,] mat = MovimentosPossiveis();
+            for (int i = 0; i < Tab.Linhas; i++)
+            {
+                for (int j = 0; j < Tab.Colunas; j++)
+                {
+                    if (mat[i, j] == true)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool PodeMoverPara(Posicao pos)
+        {
+            return MovimentosPossiveis()[pos.Linha, pos.Coluna];
         }
 
         public abstract bool[,] MovimentosPossiveis();
